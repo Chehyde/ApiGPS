@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<h2 class="h2">Ajouter une nouvelle coordonées GPS</h2>
+<h2 class="h2">Ajouter une nouvelle coordonnée GPS</h2>
 <form th:action="@{/create}" th:object="${gps}" method="POST">
   <input type="text" th:field="*{latitude}">
   <input type="text" th:field="*{longitude}">
@@ -15,7 +15,7 @@
 </form>
 <br><br>
 
-<h2 class="h2">Liste des coordonées GPS enregistrées</h2>
+<h2 class="h2">Liste des coordonnées GPS enregistrées</h2>
 <table>
   <thead>
   <tr>
@@ -26,7 +26,7 @@
   </thead>
   <tbody>
   <tr th:if="${gps_list.empty}">
-    <td colspan="3">Aucune coordonée GPS enregistrée</td>
+    <td colspan="3">Aucune coordonnée GPS enregistrée</td>
   </tr>
   <tr th:each="gps : ${gps_list}">
     <td><span th:text="${gps.id}"> ID </span></td>
@@ -38,7 +38,7 @@
 </table>
 <br><br>
 
-<h2 class="h2">Distance entre les coordonées GPS (entrer les IDs)</h2>
+<h2 class="h2">Distance entre les coordonnées GPS (entrer les IDs)</h2>
 <form th:action="@{/distance}" th:object="${ids}" method="POST">
   <input type="text" th:field="*{id1}">
   <input type="text" th:field="*{id2}">
