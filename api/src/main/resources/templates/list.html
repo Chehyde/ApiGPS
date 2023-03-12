@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Coordonnées GPS</title>
+</head>
+<body>
+
+<h2 class="h2">Ajouter une nouvelle coordonées GPS</h2>
+<form th:action="@{/create}" th:object="${gps}" method="POST">
+  <input type="text" th:field="*{latitude}">
+  <input type="text" th:field="*{longitude}">
+  <button type="submit"> Ajouter </button>
+</form>
+<br><br>
+
+<h2 class="h2">Liste des coordonées GPS enregistrées</h2>
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:if="${gps_list.empty}">
+    <td colspan="3">Aucune coordonée GPS enregistrée</td>
+  </tr>
+  <tr th:each="gps : ${gps_list}">
+    <td><span th:text="${gps.id}"> ID </span></td>
+    <td><span th:text="${gps.latitude}"> Latitude </span></td>
+    <td><span th:text="${gps.longitude}"> Longitude </span></td>
+    <td><a th:href="@{/delete/{id}(id=${gps.id})}"> Supprimer </a></td>
+  </tr>
+  </tbody>
+</table>
+<br><br>
+
+<h2 class="h2">Distance entre les coordonées GPS (entrer les IDs)</h2>
+<form th:action="@{/distance}" th:object="${ids}" method="POST">
+  <input type="text" th:field="*{id1}">
+  <input type="text" th:field="*{id2}">
+  <button type="submit"> Vérifier </button>
+</form>
+
+</body>
+</html>
