@@ -1,6 +1,6 @@
 L'application est sur le port 9000 (http://localhost:9000)
 
-L'API utilise une base de donnée H2, ce qui signifie que la base de donnée ne se sauvegarde pas entre chaque redémarrage de l'application
+L'API utilise une base de donnée H2, ce qui signifie que la base de données ne se sauvegarde pas entre chaque redémarrage de l'application
 
 
 
